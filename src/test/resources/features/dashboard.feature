@@ -17,8 +17,34 @@ Feature: Dashboard functionality
     And user sees Deck Module
     And user sees Username displayed
 
-  @wip
-    Scenario: User can click on Customize button and select any of the Widgets
+
+  Scenario: User can click on Customize button and select any of the Widgets
     Given user is on the dashboard page
     Then user clicks on Customize button
+    Then user can select and unselect on Status widget
+    Then user can select and unselect on Weather widget
+    Then user can select and unselect on Upcoming events widget
+    Then user can select and unselect on Upcoming cards widget
+    Then user can select and unselect on Important mail widget
+    Then user can select and unselect on Unread mail widget
+    Then user can select and unselect on Recommended files widget
+    Then user can select and unselect on Talk mentions widget
+    Then user can select and unselect on Recent statuses widget
+
+  @wip
+  Scenario: User can click on Set Status button and select any of the Status options
+    Given user is on the dashboard page
+    When user clicks on Customize button if Status button is not displayed
+    Then user selects Status widget and closes customize page to land on dashboard page
+    Then user clicks on Status button
+    And user can see and select the following options
+      | Online         |
+      | Away           |
+      | Do not disturb |
+      | Invisible      |
+
+
+
+
+
 
