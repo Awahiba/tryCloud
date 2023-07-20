@@ -70,8 +70,8 @@ public class PersonalInfoPage_StepDefinitions {
         Assert.assertTrue(phoneNumberInputboxDoesNotAcceptCharacters);
     }
 
-    @And("user clear inputbox")
-    public void userClearInputbox() {
+    @And("user clear Phone Number input box")
+    public void userClearPhoneNumberInputBox() {
         personalInfoPage.inputboxPhoneNumber.clear();
     }
 

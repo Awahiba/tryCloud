@@ -44,10 +44,10 @@ Feature: Functionality of Personal Info page
     And user clicks on Icon of profile
     And user clicks on Settings option of dropdown menu
     Then user is on the Personal Info page
-    And user clear inputbox
+    And user clear Phone Number input box
     And user enter letters at Phone number inputbox
     Then Phone number inputbox does not accept characters
-    And user clear inputbox
+    And user clear Phone Number input box
     And user enter special symbols at Phone number inputbox
     Then Phone number inputbox does not accept characters
     Examples:
