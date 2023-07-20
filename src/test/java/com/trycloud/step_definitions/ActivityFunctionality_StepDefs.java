@@ -27,7 +27,7 @@ public class ActivityFunctionality_StepDefs {
     Dashboard_Page dashboard_page = new Dashboard_Page();
   //  Actions actions = new Actions(Driver.getDriver());
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
-    @Given("user click on Activity on navigation menu")
+    @And("user click on Activity on navigation menu")
     public void user_click_on_activity_on_navigation_menu() {
        dashboard_page.activityModule.click();
 
