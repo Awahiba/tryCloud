@@ -2,6 +2,7 @@ package com.trycloud.step_definitions;
 
 import com.trycloud.pages.Dashboard_Page;
 import com.trycloud.pages.PersonalInfoPage;
+import com.trycloud.utilities.ConfigurationReader;
 import com.trycloud.utilities.Driver;
 import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
@@ -35,9 +36,9 @@ public class PersonalInfoPage_StepDefinitions {
         Assert.assertTrue(personalInfoPage.titleFullName.isDisplayed());
         Assert.assertTrue(personalInfoPage.titleEmail.isDisplayed());
         Assert.assertTrue(personalInfoPage.titlePhoneNumber.isDisplayed());
-        Assert.assertEquals("Full name",personalInfoPage.titleFullName.getText());
-        Assert.assertEquals("Email",personalInfoPage.titleEmail.getText());
-        Assert.assertEquals("Phone number",personalInfoPage.titlePhoneNumber.getText());
+        Assert.assertEquals("Full name", personalInfoPage.titleFullName.getText());
+        Assert.assertEquals("Email", personalInfoPage.titleEmail.getText());
+        Assert.assertEquals("Phone number", personalInfoPage.titlePhoneNumber.getText());
     }
 
     @Then("User checks names at Full name field and at dropdown menu under Icon op profile")
@@ -45,35 +46,32 @@ public class PersonalInfoPage_StepDefinitions {
         Assert.assertEquals(dashboard_page.username.getText(), personalInfoPage.inputboxFullName.getText());
     }
 
-    @And("user enter letters at Phone number inputbox")
-    public void userEnterLettersAtPhoneNumberInputbox() {
-        personalInfoPage.inputboxPhoneNumber.sendKeys("123abracadabra" + Keys.ENTER);
+    @And("user clear and enter {string} into the Phone number inputbox")
+    public void userClearAndEnterIntoThePhoneNumberInputbox(String typeOfCharacters) {
+        personalInfoPage.inputboxPhoneNumber.clear();
+
+        if (typeOfCharacters.equalsIgnoreCase("letters")) {
+            personalInfoPage.inputboxPhoneNumber.sendKeys("123abracadabra" + Keys.ENTER);
+
+        } else if (typeOfCharacters.equalsIgnoreCase("special symbols")) {
+            personalInfoPage.inputboxPhoneNumber.sendKeys("123@!%$#" + Keys.ENTER);
+        }
     }
 
-    @And("user enter special symbols at Phone number inputbox")
-    public void userEnterSpecialSymbolsAtPhoneNumberInputbox() {
-        personalInfoPage.inputboxPhoneNumber.sendKeys("123@!%$#" + Keys.ENTER);
-    }
+    @Then("Phone number inputbox does not accept any letters or characters")
+    public void phoneNumberInputboxDoesNotAcceptAnyLettersOrCharacters() {
 
-    @Then("Phone number inputbox does not accept characters")
-    public void phoneNumberInputboxDoesNotAcceptCharacters() {
         String actualValueOfPhoneNumber = personalInfoPage.inputboxPhoneNumber.getAttribute("value");
-        boolean phoneNumberInputboxDoesNotAcceptCharacters = true;
+        boolean phoneNumberInputboxDoesNotAcceptAnyCharacters = true;
 
         for (char ch : actualValueOfPhoneNumber.toCharArray()) {
             if (!Character.isDigit(ch)) {
                 System.out.println("Phone number inputbox accepts non-numeric characters");
-                phoneNumberInputboxDoesNotAcceptCharacters = false;
+                phoneNumberInputboxDoesNotAcceptAnyCharacters = false;
                 break;
             }
         }
-        Assert.assertTrue(phoneNumberInputboxDoesNotAcceptCharacters);
+        Assert.assertTrue(phoneNumberInputboxDoesNotAcceptAnyCharacters);
     }
-
-    @And("user clear Phone Number input box")
-    public void userClearPhoneNumberInputBox() {
-        personalInfoPage.inputboxPhoneNumber.clear();
-    }
-
-
 }
+
