@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -483,6 +485,34 @@ public class BrowserUtils {
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time)).until(ExpectedConditions.presenceOfElementLocated(by));
     }
+
+
+    //This method will convert List<String> to List <LocalDateTime>
+    public static List<LocalDateTime> convertListOfStringtoListOfDateAndTime(List<String> stringList ){
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy h:mm a");
+
+        List<LocalDateTime> dateTimesList = new ArrayList<>();
+        for(String  each :stringList){
+            LocalDateTime localDateTime = LocalDateTime.parse(each,dateFormatter);
+            dateTimesList.add(localDateTime);
+        }
+        return dateTimesList;
+    }
+
+    //This method will check if dates and times from List <LocalDateTime> is ordered from newest to oldest
+
+
+    public static boolean isOrderedNewestToOldest(List<LocalDateTime> dateTimeList) {
+        for (int i = 1; i < dateTimeList.size(); i++) {
+            LocalDateTime currentDateTime = dateTimeList.get(i);
+            LocalDateTime previousDateTime = dateTimeList.get(i - 1);
+            if (currentDateTime.isBefore(previousDateTime) && currentDateTime.isEqual(previousDateTime)) {
+                return false; // Not ordered correctly
+            }
+        }
+        return true; // Ordered correctly
+    }
+
 
 
 }
