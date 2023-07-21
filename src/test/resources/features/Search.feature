@@ -1,7 +1,7 @@
-
+@search @prelogin
 Feature: File, Contact, or Photo Search from Dashboard
 
-  @search @prelogin
+
   Scenario: Searching and viewing details of a search item
     Given I am a user logged in on the "Dashboard"
     And I have a "Search_input" with a known name
