@@ -486,6 +486,11 @@ public class BrowserUtils {
         new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time)).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public static void clickTwice(WebElement element){
+        element.click();
+        element.click();
+    }
+
 
     //This method will convert List<String> to List <LocalDateTime>
     public static List<LocalDateTime> convertListOfStringtoListOfDateAndTime(List<String> stringList ){
