@@ -81,8 +81,6 @@ public class Search_StepDefinitions {
 
     @Then("the details side page of the {string} should appear when clicked on it")
     public void the_details_side_page_of_the_file_should_appear_when_clicked_on_it(String searchItem) {
-        System.out.println("the_details_side_page_of_the_file_should_appear_when_clicked_on_it");
-
         /**
          * will need to change to wait until element is visible
          */
@@ -94,29 +92,7 @@ public class Search_StepDefinitions {
     }
 
 
-    /**
-     * Implement it later do NOT FORGET!!
-     *
-     * @Given("I have a contact with a known name")
-     * public void i_have_a_contact_with_a_known_name() {
-     * <p>
-     * }
-     * @Then("the details side page of the contact should appear when clicked on it")
-     * public void the_details_side_page_of_the_contact_should_appear_when_clicked_on_it() {
-     * <p>
-     * }
-     * <p>
-     * <p>
-     * //io.cucumber.junit.UndefinedStepException: The step 'I am a user logged in on the Dashboard' and 6 other step(s) are undefined.
-     * @Given("I have a photo with a known name")
-     * public void i_have_a_photo_with_a_known_name() {
-     * <p>
-     * }
-     * @Then("the details side page of the photo should appear when clicked on it")
-     * public void the_details_side_page_of_the_photo_should_appear_when_clicked_on_it() {
-     * <p>
-     * }
-     **/
+
 
     Dashboard_Page dashboardPage = new Dashboard_Page();
 
