@@ -1,4 +1,4 @@
-@PersonalInfoPageTests
+@PersonalInfoPageTests @B29G22-212
 Feature: Functionality of Personal Info page
   User Story:
   As a user, I should be able to change profile info settings under the Profile module.
@@ -6,8 +6,9 @@ Feature: Functionality of Personal Info page
   Background:
     Given the user is on the login page
 
-  Scenario Outline: US-013 AC-1 user sees Full name, Email, Phone Number titles on Personal Info page
-    And the user logged in as "<username>"
+    @B29G22-204
+  Scenario Outline: US013-AC1-TC1 user sees Full name, Email, Phone Number titles on Personal Info page
+    When the user logged in as "<username>"
     And the user is on the home page
     And user clicks on Icon of profile
     And user clicks on Settings option of dropdown menu
@@ -22,8 +23,10 @@ Feature: Functionality of Personal Info page
       | employee2 |
       | employee3 |
 
-  Scenario Outline: US-013 AC-2 name of the user should be matched with user Full name
-    And the user logged in as "<username>"
+
+  @B29G22-209
+  Scenario Outline: US013-AC1-TC2 Verify name of the user should be matched with user Full name on Personal Info page
+    When the user logged in as "<username>"
     And the user is on the home page
     And user clicks on Icon of profile
     And user clicks on Settings option of dropdown menu
@@ -38,8 +41,10 @@ Feature: Functionality of Personal Info page
       | employee2 |
       | employee3 |
 
-  Scenario Outline: US-013 AC-3 user cannot pass any characters except numbers into the "Phone Number" input box
-    And the user logged in as "<username>"
+
+  @B29G22-210
+  Scenario Outline: US013-AC1-TC3 Verify Phone number inputbox does not accept any letters or characters on Personal Info page
+    When the user logged in as "<username>"
     And the user is on the home page
     And user clicks on Icon of profile
     And user clicks on Settings option of dropdown menu
