@@ -3,6 +3,7 @@ package com.trycloud.step_definitions;
 
 
 
+import com.trycloud.pages.LoginPage;
 import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.ConfigurationReader;
 import com.trycloud.utilities.Driver;
@@ -29,9 +30,10 @@ public class Hooks {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
     }
 
-    //@Before (value = "@login", order = 2 )
+    @Before (value = "@prelogin", order = 2 )
     public void login_scenario_before(){
         System.out.println("---> @Before: RUNNING BEFORE EACH SCENARIO");
+        new LoginPage().login(ConfigurationReader.getProperty("User1_username"),ConfigurationReader.getProperty("User_password"));
     }
 
     /*
