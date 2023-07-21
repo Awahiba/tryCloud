@@ -2,9 +2,11 @@
 Feature: Dashboard functionality
   User Story: As a user I should be able to modify Dashboard page
 
+  Background:
+    Given user is on the dashboard page
 
   Scenario: After login user can can see all modules and username
-    Given user is on the dashboard page
+   # Given user is on the dashboard page
     Then user sees Dashboard Module
     And user sees Files Module
     And user sees Photos Module
@@ -19,7 +21,7 @@ Feature: Dashboard functionality
 
 
   Scenario: User can click on Customize button and select any of the Widgets
-    Given user is on the dashboard page
+   # Given user is on the dashboard page
     Then user clicks on Customize button
     Then user can select and unselect on Status widget
     Then user can select and unselect on Weather widget
@@ -33,11 +35,10 @@ Feature: Dashboard functionality
 
   @wip
   Scenario: User can click on Set Status button and select any of the Status options
-    Given user is on the dashboard page
-    When user clicks on Customize button if Status button is not displayed
-    Then user selects Status widget and closes customize page to land on dashboard page
+   # Given user is on the dashboard page
+    Then user selects customize button to click Status widget and closes page to land on dashboard page
     Then user clicks on Status button
-    And user can see and select the following options
+    And user can select the following options
       | Online         |
       | Away           |
       | Do not disturb |
