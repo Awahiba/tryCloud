@@ -50,4 +50,6 @@ public class Dashboard_Page {
     @FindBy(xpath = "//a[.='Customize']")
     public WebElement customizeButton;
 
+    @FindBy(xpath = "//a[@href='/index.php/settings/user']")
+    public WebElement profileSettings;
 }
