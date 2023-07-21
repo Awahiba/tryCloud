@@ -1,10 +1,10 @@
-@dashboard
+@B29G22-208
 Feature: Dashboard functionality
   User Story: As a user I should be able to modify Dashboard page
 
   Background: user is on the dashboard page
 
-
+  @B29G22-205
   Scenario Outline: After login user can can see all modules and username
    # Given user is on the dashboard page
     Given the user logged in with "<username>" and "<password>"
@@ -24,10 +24,10 @@ Feature: Dashboard functionality
 
     Examples:
       | username   | password    |
-      | User1     | Userpass123 |
+      | User1      | Userpass123 |
       | Employee82 | Employee123 |
 
-
+  @B29G22-206
   Scenario Outline: User can click on Customize button and select any of the Widgets
    # Given user is on the dashboard page
     Given the user logged in with "<username>" and "<password>"
@@ -46,10 +46,10 @@ Feature: Dashboard functionality
 
     Examples:
       | username   | password    |
-      | User1     | Userpass123 |
+      | User1      | Userpass123 |
       | Employee82 | Employee123 |
 
-
+  @B29G22-207
   Scenario Outline: User can click on Set Status button and select any of the Status options
    # Given user is on the dashboard page
     Given the user logged in with "<username>" and "<password>"
@@ -65,7 +65,7 @@ Feature: Dashboard functionality
 
     Examples:
       | username   | password    |
-      | User1     | Userpass123 |
+      | User1      | Userpass123 |
       | Employee82 | Employee123 |
 
 
