@@ -24,10 +24,10 @@ public class Dashboard_StepDefs {
     Customize_Page customize_page = new Customize_Page();
     Status_Page status_page = new Status_Page();
 
-    @Given("user is on the dashboard page")
-    public void user_is_on_the_dashboard_page() {
-        loginPage.login("User1" , "Userpass123");
-    }
+//    @Given("user is on the dashboard page")
+//    public void user_is_on_the_dashboard_page() {
+//        loginPage.login("User1" , "Userpass123");
+//    }
 
 
     @And("user sees Dashboard Module")

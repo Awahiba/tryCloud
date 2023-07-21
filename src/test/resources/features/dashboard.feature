@@ -2,11 +2,14 @@
 Feature: Dashboard functionality
   User Story: As a user I should be able to modify Dashboard page
 
-  Background:
-    Given user is on the dashboard page
+  Background: user is on the dashboard page
 
-  Scenario: After login user can can see all modules and username
+
+  Scenario Outline: After login user can can see all modules and username
    # Given user is on the dashboard page
+    Given the user logged in with "<username>" and "<password>"
+    And the user is on the home page
+
     Then user sees Dashboard Module
     And user sees Files Module
     And user sees Photos Module
@@ -19,9 +22,17 @@ Feature: Dashboard functionality
     And user sees Deck Module
     And user sees Username displayed
 
+    Examples:
+      | username   | password    |
+      | User1     | Userpass123 |
+      | Employee82 | Employee123 |
 
-  Scenario: User can click on Customize button and select any of the Widgets
+
+  Scenario Outline: User can click on Customize button and select any of the Widgets
    # Given user is on the dashboard page
+    Given the user logged in with "<username>" and "<password>"
+    And the user is on the home page
+
     Then user clicks on Customize button
     Then user can select and unselect on Status widget
     Then user can select and unselect on Weather widget
@@ -33,9 +44,17 @@ Feature: Dashboard functionality
     Then user can select and unselect on Talk mentions widget
     Then user can select and unselect on Recent statuses widget
 
-  @wip
-  Scenario: User can click on Set Status button and select any of the Status options
+    Examples:
+      | username   | password    |
+      | User1     | Userpass123 |
+      | Employee82 | Employee123 |
+
+
+  Scenario Outline: User can click on Set Status button and select any of the Status options
    # Given user is on the dashboard page
+    Given the user logged in with "<username>" and "<password>"
+    And the user is on the home page
+
     Then user selects customize button to click Status widget and closes page to land on dashboard page
     Then user clicks on Status button
     And user can select the following options
@@ -43,6 +62,11 @@ Feature: Dashboard functionality
       | Away           |
       | Do not disturb |
       | Invisible      |
+
+    Examples:
+      | username   | password    |
+      | User1     | Userpass123 |
+      | Employee82 | Employee123 |
 
 
 
