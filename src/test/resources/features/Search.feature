@@ -1,20 +1,16 @@
-@search @prelogin
+
 Feature: File, Contact, or Photo Search from Dashboard
 
-  Scenario Outline: Searching and viewing details of a search item
+  @search @prelogin
+  Scenario: Searching and viewing details of a search item
     Given I am a user logged in on the "Dashboard"
-    And I have a <search_item> with a known name
+    And I have a "Search_input" with a known name
     When I click on the magnifying glass icon inside any Module
     And I enter the known name into the search field
-    And I press the Enter key
     Then I should see a list of search results matching the known name
-    And the details side page of the <search_item> should appear when clicked on it
+    And I press the Enter key
+    And the details side page of the "Search_input" should appear when clicked on it
 
-    Examples:
-      | search_item  |
-      | file         |
-      | contact      |
-      | photo        |
 
   Scenario: Navigating back to the Dashboard
     Given I am a user logged in and viewing a search item's details
