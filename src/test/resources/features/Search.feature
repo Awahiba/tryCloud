@@ -11,6 +11,16 @@ Feature: File, Contact, or Photo Search from Dashboard
     And I press the Enter key
     And the details side page of the "Search_input" should appear when clicked on it
 
+#TODO 1. Create map of web Element with Key, loop through them and verify key is equals/contains
+  #TODO TODO 1.1 Create variable for storing element in DashboardPage
+  #TODO 1.2 Add needed elements
+  #TODO 1.3 In Search StepDef add logic to loop, idk how yet
+
+  #TODO 2. ADD Scenario for Name input and check it
+  #TODO 3. Add Explicit wait where needed
+  #TODO 4. Sort webElements from SearchPage
+
+
 
   Scenario: Navigating back to the Dashboard
     Given I am a user logged in and viewing a search item's details
