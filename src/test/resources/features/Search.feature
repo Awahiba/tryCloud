@@ -1,4 +1,4 @@
-@search @prelogin
+@search @prelogin @us009
 Feature: File, Contact, or Photo Search from Dashboard
 
 
