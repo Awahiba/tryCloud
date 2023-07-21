@@ -1,8 +1,8 @@
-@search @login
+@search @prelogin
 Feature: File, Contact, or Photo Search from Dashboard
 
   Scenario Outline: Searching and viewing details of a search item
-    Given I am a user logged in on the Dashboard
+    Given I am a user logged in on the "Dashboard"
     And I have a <search_item> with a known name
     When I click on the magnifying glass icon inside any Module
     And I enter the known name into the search field
@@ -22,6 +22,6 @@ Feature: File, Contact, or Photo Search from Dashboard
     Then I should be redirected to the Dashboard
 
   Scenario: Viewing photos under the Photos Module
-    Given I am a user logged in on the Dashboard
+    Given I am a user logged in on the "Dashboard"
     When I navigate to the Photos Module
     Then I should be able to see the photos under the Photos Module
