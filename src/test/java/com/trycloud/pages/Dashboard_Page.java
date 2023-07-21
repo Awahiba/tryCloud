@@ -50,4 +50,11 @@ public class Dashboard_Page {
     @FindBy(xpath = "//a[.='Customize']")
     public WebElement customizeButton;
 
+    @FindBy(xpath = "//button[@class='user-status-menu-item__toggle user-status-menu-item__toggle--inline']")
+    public WebElement onlineStatusButton;
+
+    @FindBy(xpath = "//a[@href='/index.php/settings/user']")
+    public WebElement profileSettings;
+
+
 }

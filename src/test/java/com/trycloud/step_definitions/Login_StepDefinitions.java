@@ -7,6 +7,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
+import java.util.Map;
+
 public class Login_StepDefinitions {
 
 
@@ -55,5 +57,13 @@ public class Login_StepDefinitions {
     public void theUserIsOnTheHomePage() {
 
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://qa.trycloud.net/index.php/apps/dashboard/"));
+    }
+
+
+
+    @Given("the user logged in with {string} and {string}")
+    public void theUserLoggedInWithAnd(String username,String password) {
+        new LoginPage().login(username,password);
+
     }
 }
