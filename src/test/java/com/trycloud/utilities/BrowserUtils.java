@@ -12,6 +12,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -485,12 +486,10 @@ public class BrowserUtils {
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time)).until(ExpectedConditions.presenceOfElementLocated(by));
     }
-
     public static void clickTwice(WebElement element){
         element.click();
         element.click();
     }
-
 
     //This method will convert List<String> to List <LocalDateTime>
     public static List<LocalDateTime> convertListOfStringtoListOfDateAndTime(List<String> stringList ){
@@ -517,7 +516,21 @@ public class BrowserUtils {
         }
         return true; // Ordered correctly
     }
+    public static boolean isListInDescendingOrder(List<String> list) {
+        if (list == null || list.isEmpty()) {
+            throw new IllegalArgumentException("List must not be null or empty");
+        }
 
+        for (int i = 0; i < list.size() - 1; i++) {
+            String current = list.get(i);
+            String next = list.get(i + 1);
 
+            if (current.compareTo(next) < 0) {
+                return false;
+            }
+        }
 
-}
+        return true;
+    }
+
+    }
