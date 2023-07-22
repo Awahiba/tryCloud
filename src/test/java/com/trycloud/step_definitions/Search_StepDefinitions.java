@@ -25,10 +25,8 @@ public class Search_StepDefinitions {
 
     @Given("I have a {string} with a known name")
     public void i_have_a_file_with_a_known_name(String searchItem) {
-        System.out.println("i_have_a_file_with_a_known_name");
-
         searchInput = ConfigurationReader.getProperty(searchItem);
-        System.out.println(searchInput);
+
 
     }
 
@@ -37,16 +35,12 @@ public class Search_StepDefinitions {
 
     @When("I click on the magnifying glass icon inside any Module")
     public void i_click_on_the_magnifying_glass_icon_inside_any_module() {
-        System.out.println("i_click_on_the_magnifying_glass_icon_inside_any_module");
-
         searchResultPage.magnifyingIcon.click();
         BrowserUtils.waitFor(5);
     }
 
     @When("I enter the known name into the search field")
     public void i_enter_the_known_name_into_the_search_field() {
-        System.out.println("i_enter_the_known_name_into_the_search_field");
-        System.out.println(searchInput);
         searchResultPage.searchBox.sendKeys(searchInput);
         BrowserUtils.waitFor(5);
 
@@ -54,16 +48,12 @@ public class Search_StepDefinitions {
 
     @When("I press the Enter key")
     public void i_press_the_enter_key() {
-        System.out.println("i_press_the_enter_key");
-
         searchResultPage.searchBox.sendKeys(Keys.ENTER);
         BrowserUtils.waitFor(5);
     }
 
     @Then("I should see a list of search results matching the known name")
     public void i_should_see_a_list_of_search_results_matching_the_known_name() {
-        System.out.println("i_should_see_a_list_of_search_results_matching_the_known_name");
-
         Assert.assertFalse("No results", searchResultPage.searchResults.isEmpty());
 
         boolean isSearchItemFound = false;
@@ -87,11 +77,7 @@ public class Search_StepDefinitions {
         BrowserUtils.sleep(10);
         searchInput = ConfigurationReader.getProperty(searchItem);
         Assert.assertTrue(searchResultPage.activityFeedTitle.getText().contains(searchInput));
-
-
     }
-
-
 
 
     Dashboard_Page dashboardPage = new Dashboard_Page();
@@ -103,7 +89,7 @@ public class Search_StepDefinitions {
 
     @When("I click the App icon at the top left corner on the page")
     public void i_click_the_app_icon_at_the_top_left_corner_on_the_page() {
-        searchResultPage.appIcon.click();
+        dashboardPage.appIcon.click();
     }
 
     @Then("I should be redirected to the Dashboard")
@@ -117,7 +103,6 @@ public class Search_StepDefinitions {
     @When("I navigate to the Photos Module")
     public void i_navigate_to_the_photos_module() {
         dashboardPage.photosModule.click();
-
     }
 
     Photo_Page photoPage = new Photo_Page();
@@ -125,7 +110,6 @@ public class Search_StepDefinitions {
     @Then("I should be able to see the photos under the Photos Module")
     public void i_should_be_able_to_see_the_photos_under_the_photos_module() {
         BrowserUtils.waitFor(5);
-
         for (WebElement photo : photoPage.photoList) {
             Assert.assertTrue(photo.isDisplayed());
         }
