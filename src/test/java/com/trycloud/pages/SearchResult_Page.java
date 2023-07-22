@@ -5,7 +5,6 @@ import com.trycloud.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.List;
 
 public class SearchResult_Page {
@@ -17,12 +16,12 @@ public class SearchResult_Page {
     }
 
 
-    @FindBy(xpath = "//span[@class='innernametext']")
-    public WebElement searchResult;
+    @FindBy(xpath = "//*[@id=\"header-menu-unified-search\"]/div[2]")
+    public WebElement searchInfoContent;
 
 
-    @FindBy(xpath = "//div[@id='activityTabView']")
-    public WebElement activityFeed;
+    @FindBy(xpath = "//*[@id=\"app-sidebar-vue\"]/header/div[1]/div[2]")
+    public WebElement sideBar;
 
 
     @FindBy(xpath = "//h2[@class='app-sidebar-header__maintitle']\n")
