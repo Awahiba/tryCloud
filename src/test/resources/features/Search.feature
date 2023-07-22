@@ -1,7 +1,7 @@
-@search @prelogin @us009
+@search @prelogin @us009 @B29G22-242
 Feature: File, Contact, or Photo Search from Dashboard
 
-
+  @B29G22-240
   Scenario: Searching and viewing details of a search item
     Given I am a user logged in on the "Dashboard"
     And I have a "Search_input" with a known name
@@ -21,12 +21,12 @@ Feature: File, Contact, or Photo Search from Dashboard
   #TODO 4. Sort webElements from SearchPage
 
 
-
+  @B29G22-241
   Scenario: Navigating back to the Dashboard
     Given I am a user logged in and viewing a search item's details
     When I click the App icon at the top left corner on the page
     Then I should be redirected to the Dashboard
-
+  @B29G22-243
   Scenario: Viewing photos under the Photos Module
     Given I am a user logged in on the "Dashboard"
     When I navigate to the Photos Module
