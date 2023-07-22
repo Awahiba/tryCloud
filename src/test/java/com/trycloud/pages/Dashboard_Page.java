@@ -56,5 +56,11 @@ public class Dashboard_Page {
     @FindBy(xpath = "//a[@href='/index.php/settings/user']")
     public WebElement profileSettings;
 
+    @FindBy(xpath = "//a[@id='nextcloud']")
+    /**
+    App Icon top Left corner
+     **/
+    public WebElement appIcon;
+
 
 }
